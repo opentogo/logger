@@ -21,8 +21,8 @@ type Logger struct {
 	res       http.ResponseWriter
 }
 
-func NewLogger(out io.Writer, prefix string, flags int) Logger {
-	return Logger{
+func NewLogger(out io.Writer, prefix string, flags int) *Logger {
+	return &Logger{
 		log: log.New(out, prefix, flags),
 	}
 }
