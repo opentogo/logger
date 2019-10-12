@@ -89,6 +89,18 @@ func (l Logger) Printf(format string, v ...interface{}) {
 	l.log.Printf(format, v...)
 }
 
+func (l Logger) SetFlags(flag int) {
+	l.log.SetFlags(flag)
+}
+
+func (l Logger) SetOutput(w io.Writer) {
+	l.log.SetOutput(w)
+}
+
+func (l Logger) SetPrefix(prefix string) {
+	l.log.SetPrefix(prefix)
+}
+
 func (l *Logger) Handler(handler http.Handler) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		l.res = w
